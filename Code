@@ -1,0 +1,36 @@
+/*Step 1 − Import the desired modules (irregular and tkinter).
+
+Step 2 − Make a Tk() question to represent the most window.
+
+Step 3 − Characterize a work to produce a random secret word.
+
+Step 4 − Inside the work, characterize a string of characters from which the secret word will be created.
+
+Step 5 − Utilize the random.choice() method to arbitrarily select characters from the string and add them to the watchword.
+
+Step 6 − Make a Name gadget to show the created secret word.
+
+Step 7 − Make a Button gadget to trigger the watchword era.
+
+Step 8 − Utilize the pack() strategy to display the widgets.
+
+Step 9 − Begin the most occasion circle utilizing the mainloop() strategy. */
+
+import random
+import tkinter as tk
+
+def generate_password():
+    password_length = 8  # Length of the password
+    characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+"
+    password = ''.join(random.choice(characters) for _ in range(password_length))
+    password_label.config(text=password)
+
+window = tk.Tk()
+
+generate_button = tk.Button(window, text="Generate Password", command=generate_password)
+generate_button.pack()
+
+password_label = tk.Label(window, text="")
+password_label.pack()
+
+window.mainloop()
